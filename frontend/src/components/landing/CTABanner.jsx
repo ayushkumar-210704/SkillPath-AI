@@ -1,49 +1,34 @@
-import { Link } from "react-router-dom";
-import { FiArrowRight } from "react-icons/fi";
+import { Link } from 'react-router-dom'
+import { FiArrowRight } from 'react-icons/fi'
 
-const CTABanner = () => {
-  return (
-    <section style={{ padding: "60px 20px" }}>
-      <div className="container">
-        <div
-          style={{
-            background: "#007bff",
-            color: "#fff",
-            borderRadius: "12px",
-            padding: "50px 30px",
-            textAlign: "center",
-          }}
-        >
-          <h2
-            style={{
-              fontSize: "2.5rem",
-              marginBottom: "20px",
-            }}
-          >
-            Ready to Start Your Learning Journey?
+const CTABanner = () => (
+  <section style={{ padding: 'var(--space-20) 0' }}>
+    <div className="container">
+      <div style={{
+        background: 'linear-gradient(135deg, rgba(108,99,255,0.2) 0%, rgba(0,212,170,0.1) 100%)',
+        border: '1px solid rgba(108,99,255,0.3)',
+        borderRadius: 'var(--radius-xl)',
+        padding: 'var(--space-16)',
+        textAlign: 'center',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 0%, rgba(108,99,255,0.15), transparent 60%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', marginBottom: 'var(--space-4)' }}>
+            Ready to Build Your <span className="gradient-text">Learning Path?</span>
           </h2>
-
-          <p
-            style={{
-              maxWidth: "650px",
-              margin: "0 auto 30px",
-              lineHeight: "1.8",
-              fontSize: "1.1rem",
-            }}
-          >
-            Explore quality learning resources, improve your skills, and take
-            the next step toward achieving your academic and career goals.
+          <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--text-lg)', marginBottom: 'var(--space-8)', maxWidth: 560, margin: '0 auto var(--space-8)' }}>
+            Join thousands of students who use SkillPath AI to learn faster, build projects, and land their dream jobs.
           </p>
-
-          <Link to="/contact">
-            <button className="btn btn-primary">
-              Contact Us <FiArrowRight />
+          <Link to="/register">
+            <button className="btn btn--accent btn--lg">
+              Get Your Free Roadmap <FiArrowRight />
             </button>
           </Link>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+)
 
-export default CTABanner;
+export default CTABanner

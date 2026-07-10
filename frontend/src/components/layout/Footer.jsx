@@ -1,100 +1,47 @@
-import { Link } from "react-router-dom";
-import { FiZap, FiGithub, FiTwitter } from "react-icons/fi";
+import { Link } from 'react-router-dom'
+import { FiZap, FiGithub, FiTwitter } from 'react-icons/fi'
 
-const Footer = () => {
-  return (
-    <footer
-      style={{
-        background: "#f5f5f5",
-        borderTop: "1px solid #ddd",
-        padding: "40px 20px",
-        marginTop: "40px",
-      }}
-    >
-      <div
-        className="container"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "30px",
-        }}
-      >
-        {/* Logo & Description */}
+const Footer = () => (
+  <footer style={{
+    background: 'var(--color-bg-secondary)',
+    borderTop: '1px solid var(--color-border)',
+    padding: 'var(--space-12) 0 var(--space-8)'
+  }}>
+    <div className="container">
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--space-10)', marginBottom: 'var(--space-10)' }}>
         <div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              fontSize: "24px",
-              fontWeight: "bold",
-              marginBottom: "10px",
-            }}
-          >
-            <FiZap />
-            <span>SkillPath</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontWeight: 800, fontSize: 'var(--text-xl)', marginBottom: 'var(--space-3)' }}>
+            <FiZap style={{ color: 'var(--color-primary)' }} />
+            <span>SkillPath <span className="gradient-text">AI</span></span>
           </div>
-
-          <p style={{ maxWidth: "300px", lineHeight: "1.6" }}>
-            A learning platform designed to help students improve their skills
-            through quality educational resources.
-          </p>
+          <p style={{ fontSize: 'var(--text-sm)' }}>AI-powered personalized learning for every student. Aligned with UN SDG 4 — Quality Education.</p>
         </div>
-
-        {/* Navigation */}
         <div>
-          <h3>Quick Links</h3>
-
-          <ul style={{ listStyle: "none", padding: 0, lineHeight: "2" }}>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
+          <h4 style={{ marginBottom: 'var(--space-4)', fontSize: 'var(--text-sm)', fontWeight: 700, color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Platform</h4>
+          <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+            {['/', '/about', '/login', '/register'].map((path, i) => (
+              <li key={i}><Link to={path} style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--text-sm)', transition: 'var(--transition)' }}
+                onMouseOver={e => e.target.style.color = 'var(--color-text)'}
+                onMouseOut={e => e.target.style.color = 'var(--color-text-secondary)'}>
+                {['Home', 'About', 'Login', 'Register'][i]}
+              </Link></li>
+            ))}
           </ul>
         </div>
-
-        {/* Social Links */}
         <div>
-          <h3>Follow Us</h3>
-
-          <div
-            style={{
-              display: "flex",
-              gap: "15px",
-              fontSize: "24px",
-            }}
-          >
-            <a href="#">
-              <FiGithub />
-            </a>
-
-            <a href="#">
-              <FiTwitter />
-            </a>
-          </div>
+          <h4 style={{ marginBottom: 'var(--space-4)', fontSize: 'var(--text-sm)', fontWeight: 700, color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>SDG 4</h4>
+          <p style={{ fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>Quality Education — Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.</p>
         </div>
       </div>
+      <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--space-6)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 'var(--space-4)' }}>
+        <p style={{ fontSize: 'var(--text-sm)' }}>© 2025 SkillPath AI. Built with ❤️ for SDG 4.</p>
+        <div style={{ display: 'flex', gap: 'var(--space-4)' }}>
+          <a href="#" style={{ color: 'var(--color-text-secondary)', fontSize: '1.2rem', transition: 'var(--transition)' }}><FiGithub /></a>
+          <a href="#" style={{ color: 'var(--color-text-secondary)', fontSize: '1.2rem', transition: 'var(--transition)' }}><FiTwitter /></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+)
 
-      <hr style={{ margin: "30px 0" }} />
-
-      <p
-        style={{
-          textAlign: "center",
-          margin: 0,
-        }}
-      >
-        © 2026 SkillPath. All Rights Reserved.
-      </p>
-    </footer>
-  );
-};
-
-export default Footer;
+export default Footer
